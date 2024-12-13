@@ -6,7 +6,7 @@ import {
   SignOutButton,
   SignUpButton,
   useUser,
-} from "@clerk/clerk-react";
+} from "@clerk/nextjs";
 import { Butcherman } from "next/font/google";
 import { Button } from "./ui/button";
 const Nav = () => {
@@ -15,7 +15,7 @@ const Nav = () => {
     <div>
       <nav className="container mx-auto px-6 py-4">
         <div className=" justify-between items-center flex">
-          <Link href="/sign-up" className="text-2xl font-bold text-blue-600">
+          <Link href="/" className="text-2xl font-bold text-blue-600">
             MentorMatch
           </Link>
           {isSignedIn && (

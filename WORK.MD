@@ -4,7 +4,7 @@
 
 - [x] Design a clean, intuitive, and responsive interface using a CSS library (Bootstrap, Tailwind CSS).
 - [ ] Create the following pages:
-  - [ ] User Registration and Login page.
+  - [x] User Registration and Login page.
   - [ ] Profile Setup page (mentor/mentee roles, skills, interests, bio).
   - [ ] User Discovery page (filters for role, skills, interests).
   - [ ] Matchmaking page (suggest mentors/mentees).

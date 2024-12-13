@@ -21,14 +21,23 @@ const Nav = () => {
           {isSignedIn && (
             <div>
               <div className="space-x-4 hidden md:flex items-center">
-                <Link href="#" className="text-blue-600 hover:text-blue-800">
-                  About
+                <Link
+                  href="/profile"
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  Profile
                 </Link>
-                <Link href="#" className="text-blue-600 hover:text-blue-800">
-                  Features
+                <Link
+                  href="/mentors"
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  Mentors
                 </Link>
-                <Link href="#" className="text-blue-600 hover:text-blue-800">
-                  Contact
+                <Link
+                  href="/foryou"
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  For you
                 </Link>
                 <SignOutButton>
                   <Button className="text-blue-600 hover:text-blue-800 bg-blue-300 hover:bg-blue-200">

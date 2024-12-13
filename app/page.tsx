@@ -5,6 +5,7 @@ import { UserPlus, Users, Calendar, MessageSquare } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import MobileNav from "@/components/MobileNav";
 import Nav from "@/components/Nav";
+import { useEffect } from "react";
 
 export default function Home() {
   return (
@@ -14,8 +15,6 @@ export default function Home() {
       <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
       <div className="relative">
-        <Nav />
-
         <section className="container mx-auto px-6 py-16 text-center">
           <h1 className="text-5xl font-bold text-blue-900 mb-4">
             Find Your Perfect Mentor Match
@@ -24,17 +23,6 @@ export default function Home() {
             Connect with experienced mentors in your field and accelerate your
             career growth
           </p>
-          <div className="flex justify-center space-x-4">
-            <Button className="bg-blue-600 hover:bg-blue-700">
-              Get Started
-            </Button>
-            <Button
-              variant="outline"
-              className="border-blue-600 text-blue-600 hover:bg-blue-100"
-            >
-              Learn More
-            </Button>
-          </div>
         </section>
 
         <section className="container mx-auto px-6 py-16">
@@ -73,15 +61,6 @@ export default function Home() {
             professional growth
           </p>
         </section>
-
-        <footer className="bg-blue-900 text-white py-8">
-          <div className="container mx-auto px-6 text-center">
-            <p>
-              &copy; {new Date().getFullYear()} MentorMatch. All rights
-              reserved.
-            </p>
-          </div>
-        </footer>
       </div>
     </div>
   );

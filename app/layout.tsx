@@ -8,6 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import Nav from "@/components/Nav";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,7 +35,16 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+          <Nav />
           {children}
+          <footer className="bg-blue-900 text-white py-8">
+            <div className="container mx-auto px-6 text-center">
+              <p>
+                &copy; {new Date().getFullYear()} MentorMatch. All rights
+                reserved.
+              </p>
+            </div>
+          </footer>
         </body>
       </html>
     </ClerkProvider>

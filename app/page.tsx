@@ -4,6 +4,7 @@ import Link from "next/link";
 import { UserPlus, Users, Calendar, MessageSquare } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import MobileNav from "@/components/MobileNav";
+import Nav from "@/components/Nav";
 
 export default function Home() {
   return (
@@ -13,25 +14,7 @@ export default function Home() {
       <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
 
       <div className="relative">
-        <nav className="container mx-auto px-6 py-4">
-          <div className=" justify-between items-center flex">
-            <Link href="/" className="text-2xl font-bold text-blue-600">
-              MentorMatch
-            </Link>
-            <div className="space-x-4 hidden md:flex">
-              <Link href="#" className="text-blue-600 hover:text-blue-800">
-                About
-              </Link>
-              <Link href="#" className="text-blue-600 hover:text-blue-800">
-                Features
-              </Link>
-              <Link href="#" className="text-blue-600 hover:text-blue-800">
-                Contact
-              </Link>
-            </div>
-            <MobileNav />
-          </div>
-        </nav>
+        <Nav />
 
         <section className="container mx-auto px-6 py-16 text-center">
           <h1 className="text-5xl font-bold text-blue-900 mb-4">
@@ -89,18 +72,6 @@ export default function Home() {
             Join MentorMatch today and take the first step towards your
             professional growth
           </p>
-          <div className="max-w-md mx-auto">
-            <form className="flex space-x-2">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-grow"
-              />
-              <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
-                Sign Up
-              </Button>
-            </form>
-          </div>
         </section>
 
         <footer className="bg-blue-900 text-white py-8">

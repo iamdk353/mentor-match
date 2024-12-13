@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "MENTOR MATCH",
-  description: "A APP WHERE STUDENTS CAN FIND MENTORS",
+  description: "A APP WHERE STUDENTS CAN FIND MENTORS BASED ON INTREST's",
 };
 
 export default function RootLayout({

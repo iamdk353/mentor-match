@@ -5,14 +5,14 @@
 - [x] Design a clean, intuitive, and responsive interface using a CSS library (Bootstrap, Tailwind CSS).
 - [ ] Create the following pages:
   - [x] User Registration and Login page.
-  - [ ] Profile Setup page (mentor/mentee roles, skills, interests, bio).
+  - [x] Profile Setup page (mentor/mentee roles, skills, interests, bio).
   - [ ] User Discovery page (filters for role, skills, interests).
   - [ ] Matchmaking page (suggest mentors/mentees).
 
 ## Functionality
 
-- [ ] Implement secure user registration, login, and logout.
-- [ ] Allow users to create, edit, and delete profiles.
+- [x] Implement secure user registration, login, and logout.
+- [x] Allow users to create, edit, and delete profiles.
 - [ ] Develop a matching algorithm for mentors and mentees.
 - [ ] Enable connection requests (send, receive, accept, decline).
 - [ ] Add a notification system for mentorship requests and updates.

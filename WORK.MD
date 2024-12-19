@@ -19,14 +19,14 @@
 
 ## Database Integration
 
-- [ ] Set up a relational database (PostgreSQL/MySQL).
-- [ ] Define relationships between users, profiles, and mentorship requests.
-- [ ] Ensure data security and protection of sensitive information.
+- [x] Set up a relational database (PostgreSQL/MySQL).
+- [x] Define relationships between users, profiles, and mentorship requests.
+- [x] Ensure data security and protection of sensitive information.
 
 ## Edge Case Handling
 
 - [ ] Validate user inputs to prevent empty fields, invalid data, and security risks.
-- [ ] Prevent duplicate profiles and mentorship requests.
+- [x] Prevent duplicate profiles and mentorship requests.
 - [ ] Handle "No Matches Found" gracefully with alternative suggestions.
 
 ## Deployment

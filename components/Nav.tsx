@@ -7,8 +7,9 @@ import {
   SignUpButton,
   useUser,
 } from "@clerk/nextjs";
-import { Butcherman } from "next/font/google";
 import { Button } from "./ui/button";
+import { Loader } from "lucide-react";
+// const { user, isLoaded } = useUser();
 const Nav = () => {
   const { isSignedIn, user, isLoaded } = useUser();
   return (
@@ -18,11 +19,12 @@ const Nav = () => {
           <Link href="/" className="text-2xl font-bold text-blue-600">
             MentorMatch
           </Link>
+          {!isLoaded && <Loader className="animate-spin" />}
           {isSignedIn && (
             <div>
               <div className="space-x-4 hidden md:flex items-center">
                 <Link
-                  href="/profile"
+                  href={`/profile/${user.primaryEmailAddress?.emailAddress}`}
                   className="text-blue-600 hover:text-blue-800"
                 >
                   Profile

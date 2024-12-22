@@ -54,14 +54,16 @@ const page = async ({ params }: { params: { email: string } }) => {
 
           <div className="flex items-center space-x-4">
             <Avatar className="w-24 h-24 border-4 border-white shadow-lg">
-              <AvatarImage src={`/${data.image}.svg`} alt="Profile picture" />
-              <AvatarFallback>JD</AvatarFallback>
+              <AvatarImage
+                src={`/${data.image + 1}.svg`}
+                alt="Profile picture"
+              />
             </Avatar>
             <div>
-              <CardTitle className="text-3xl font-bold uppercase">
+              <CardTitle className="text-sm md:text-2xl font-bold uppercase">
                 {data.name}
               </CardTitle>
-              <p className="text-blue-100">{data.role}</p>
+              <p className="text-blue-100">{data.email}</p>
             </div>
           </div>
         </CardHeader>
@@ -99,7 +101,7 @@ const page = async ({ params }: { params: { email: string } }) => {
               <h3 className="text-lg font-semibold text-blue-800">Interests</h3>
             </div>
             <div className="flex flex-wrap gap-2">
-              {data.skills.split(",").map((interest: string, id: number) => (
+              {data.interests.split(",").map((interest: string, id: number) => (
                 <Badge
                   key={id}
                   variant="outline"

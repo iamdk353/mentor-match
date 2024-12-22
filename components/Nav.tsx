@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
-import {
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-  useUser,
-} from "@clerk/nextjs";
+import { SignOutButton, SignUpButton, useUser } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 import { Loader } from "lucide-react";
 // const { user, isLoaded } = useUser();

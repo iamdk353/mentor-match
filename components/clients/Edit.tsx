@@ -8,7 +8,7 @@ const EditClient = ({ email }: { email: string }) => {
       <Edit
         className=" "
         onClick={() => {
-          redirect(`/profile/${email}/edit`);
+          redirect(`/profile/edit`);
         }}
       />
     </div>

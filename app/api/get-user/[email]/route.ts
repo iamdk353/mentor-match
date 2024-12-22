@@ -10,7 +10,10 @@ export async function GET(
   await connectMongo();
 
   try {
-    const user = await User.findOne({ email });
+    const user = await User.findOne(
+      { email },
+      { __v: 0, _id: 0, mentors: 0, students: 0 }
+    );
 
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });

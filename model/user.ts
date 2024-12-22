@@ -11,8 +11,8 @@ const userSchema = new Schema({
     type: String,
   },
   image: Number,
-  students: [{ type: String }],
-  mentors: [{ type: String }],
+  requested: [{ type: String }],
+  accepted: [{ type: String }],
 });
 
 const User = models.User || model("User", userSchema);

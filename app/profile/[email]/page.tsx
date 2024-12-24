@@ -16,9 +16,7 @@ interface UserData {
 }
 
 import axios, { AxiosResponse } from "axios";
-import { Button } from "@/components/ui/button";
 import CreateProfile from "@/components/clients/CreateProfile";
-import { useUser } from "@clerk/nextjs";
 const page = async ({ params }: { params: { email: string } }) => {
   const { email } = await params;
   let data: any = null;

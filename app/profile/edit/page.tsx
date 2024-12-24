@@ -23,6 +23,7 @@ export interface UserProfile {
   role?: string;
   skills: string;
   image?: number;
+  xp?: number;
 }
 
 import {

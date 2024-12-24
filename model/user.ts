@@ -10,6 +10,10 @@ const userSchema = new Schema({
   bio: {
     type: String,
   },
+  xp: {
+    type: Number,
+    default: () => Math.round(Math.random() * 100),
+  },
   image: Number,
   requested: [{ type: String }],
   accepted: [{ type: String }],

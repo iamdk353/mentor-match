@@ -6,7 +6,7 @@
 - [ ] Create the following pages:
   - [x] User Registration and Login page.
   - [x] Profile Setup page (mentor/mentee roles, skills, interests, bio).
-  - [ ] User Discovery page (filters for role, skills, interests).
+  - [x] User Discovery page (filters for role, skills, interests).
   - [ ] Matchmaking page (suggest mentors/mentees).
 
 ## Functionality
@@ -41,3 +41,7 @@
 - [ ] Deployed application URL.
 - [ ] README file (setup instructions, deployed URL, technologies used).
 - [ ] Documentation on development approach, challenges, and solutions.
+
+- [ ] implement moblie view
+- [ ] implement toast notifications
+- [ ] implement follow feature

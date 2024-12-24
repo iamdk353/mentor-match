@@ -8,7 +8,7 @@ import { Loader } from "lucide-react";
 const Nav = () => {
   const { isSignedIn, user, isLoaded } = useUser();
   return (
-    <div>
+    <div className="">
       <nav className="container mx-auto px-6 py-4">
         <div className=" justify-between items-center flex">
           <Link href="/" className="text-2xl font-bold text-blue-600">
@@ -31,7 +31,7 @@ const Nav = () => {
                   Mentors
                 </Link>
                 <Link
-                  href="/foryou"
+                  href={`/foryou/${user.primaryEmailAddress?.emailAddress}`}
                   className="text-blue-600 hover:text-blue-800"
                 >
                   For you

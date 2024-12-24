@@ -1,4 +1,6 @@
+import FilterMentors from "@/components/clients/FilterMentors";
+
 const page = () => {
-  return <div className="h-screen">page</div>;
+  return <FilterMentors />;
 };
 export default page;

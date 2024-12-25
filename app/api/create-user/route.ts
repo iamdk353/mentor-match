@@ -34,10 +34,7 @@ export async function POST(request: Request) {
       { $set: userData },
       { upsert: true, new: true }
     );
-    updateNotification(
-      `profile updated,${new Date(Date.now()).toLocaleString()}`,
-      email
-    );
+    updateNotification(`profile updated`, email);
     return NextResponse.json(
       { message: "User updated or created successfully", user: updatedUser },
       { status: 200 }

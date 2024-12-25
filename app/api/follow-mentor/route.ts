@@ -23,17 +23,10 @@ export async function GET(req: NextRequest) {
     );
     if (mentor && student) {
       await updateNotification(
-        `you recived a follow request from ${student},${new Date(
-          Date.now()
-        ).toLocaleString()}`,
+        `you recived a follow request from ${student}`,
         mentor
       );
-      await updateNotification(
-        `you Started to follow ${mentor},${new Date(
-          Date.now()
-        ).toLocaleString()}`,
-        student
-      );
+      await updateNotification(`you Started to follow ${mentor}`, student);
     }
 
     return NextResponse.json({ msg: "followed" });

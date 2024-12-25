@@ -12,7 +12,11 @@ const page = async ({ params }: { params: { email: string } }) => {
   try {
     let resp;
     if (email)
-      resp = await axios.get(`api/get-user/${decodeURIComponent(email)}`);
+      resp = await axios.get(
+        `https://mentor-match-smoky.vercel.app/api/get-user/${decodeURIComponent(
+          email
+        )}`
+      );
     data = resp?.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

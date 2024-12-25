@@ -37,7 +37,7 @@ import {
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Loader } from "lucide-react";
-import { toast } from "sonner";
+import toast, { Toast } from "react-hot-toast";
 
 const Page = () => {
   const router = useRouter();
@@ -64,6 +64,7 @@ const Page = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     setLoad(true);
     e.preventDefault();
+
     try {
       await axios.post("http://localhost:3000/api/create-user/", {
         ...profile,

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connectMongo from "@/DB/connect";
 import User from "@/model/user";
+import updateNotification from "../(lib)/update-Notification";
 
 export async function POST(request: Request) {
   try {
@@ -33,7 +34,10 @@ export async function POST(request: Request) {
       { $set: userData },
       { upsert: true, new: true }
     );
-
+    updateNotification(
+      `profile updated,${new Date(Date.now()).toLocaleString()}`,
+      email
+    );
     return NextResponse.json(
       { message: "User updated or created successfully", user: updatedUser },
       { status: 200 }

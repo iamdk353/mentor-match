@@ -18,11 +18,13 @@ import {
   X,
   ZapIcon,
 } from "lucide-react";
+
 import { Badge } from "../ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { useUser } from "@clerk/nextjs";
 import { Checkbox } from "../ui/checkbox";
+import toast from "react-hot-toast";
 const FilterMentors = () => {
   const { user, isSignedIn } = useUser();
   const [userProfile, setuserProfile] = useState<UserProfile[]>();
@@ -37,6 +39,7 @@ const FilterMentors = () => {
   useEffect(() => {
     async function getData() {
       setLoad(true);
+      toast.success("Fetched mentors");
       const resp = await axios.get(
         `http://localhost:3000/api/get-mentors${
           skills ? `?skills=${skills}` : ""
@@ -60,7 +63,7 @@ const FilterMentors = () => {
           "http://localhost:3000/api/matches/" +
             user?.primaryEmailAddress?.emailAddress
         );
-
+        toast.success("Mentors based on your skills and intrests");
         const data = await resp.data.matchMentors;
         setSkills(await resp.data.skills);
         setIntrests(await resp.data.intrestes);
@@ -70,7 +73,6 @@ const FilterMentors = () => {
       }
       getData();
     } else {
-      // todo add toast to update profile
       setSkills("");
       setIntrests("");
       setXp(undefined);
@@ -196,6 +198,8 @@ const FilterMentors = () => {
                     await axios.get(
                       `http://localhost:3000/api/follow-mentor?student=${user?.primaryEmailAddress?.emailAddress}&mentor=${SelecteduserProfile.email}`
                     );
+                    toast.success(`you started following 
+                      check notification`);
                     setSelectedUserProfile(undefined);
                   }}
                 >

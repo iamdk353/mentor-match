@@ -1,28 +1,10 @@
 import EditClient from "@/components/clients/Edit";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  GraduationCap,
-  Heart,
-  NotebookPenIcon,
-  User,
-  UserPlus2,
-} from "lucide-react";
-interface UserData {
-  email: string;
-  bio: string;
-  interests: string;
-  mentors: string[];
-  name: string;
-  role: "MENTOR" | "STUDENT";
-  skills: string;
-  following: string[];
-  followers: string[];
-  image: number;
-}
+import { GraduationCap, Heart, NotebookPenIcon, UserPlus2 } from "lucide-react";
 
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import CreateProfile from "@/components/clients/CreateProfile";
 const page = async ({ params }: { params: { email: string } }) => {
   const { email } = await params;
@@ -30,7 +12,9 @@ const page = async ({ params }: { params: { email: string } }) => {
   try {
     let resp;
     if (email)
-      resp = await axios.get(`http://localhost:3000/api/get-user/${email}`);
+      resp = await axios.get(
+        `http://localhost:3000/api/get-user/${decodeURIComponent(email)}`
+      );
     data = resp?.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

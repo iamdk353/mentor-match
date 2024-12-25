@@ -13,7 +13,9 @@ const page = async ({ params }: { params: { email: string } }) => {
     let resp;
     if (email)
       resp = await axios.get(
-        `http://localhost:3000/api/get-user/${decodeURIComponent(email)}`
+        `https://mentor-match-topaz.vercel.app/api/get-user/${decodeURIComponent(
+          email
+        )}`
       );
     data = resp?.data;
   } catch (error) {

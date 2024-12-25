@@ -66,11 +66,14 @@ const Page = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3000/api/create-user/", {
-        ...profile,
-        role: selectchange,
-        image,
-      });
+      await axios.post(
+        "https://mentor-match-topaz.vercel.app/api/create-user/",
+        {
+          ...profile,
+          role: selectchange,
+          image,
+        }
+      );
       setLoad(false);
       toast.success("updated profile");
       router.push("/profile/" + user?.primaryEmailAddress?.emailAddress);
@@ -84,7 +87,7 @@ const Page = () => {
       console.log("get data");
       try {
         const resp = await axios.get(
-          `http://localhost:3000/api/get-user/${user?.primaryEmailAddress?.emailAddress}`
+          `https://mentor-match-topaz.vercel.app/api/get-user/${user?.primaryEmailAddress?.emailAddress}`
         );
         console.log(resp.data);
         if (resp.data) {

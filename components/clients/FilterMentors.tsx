@@ -40,7 +40,7 @@ const FilterMentors = () => {
       setLoad(true);
       toast.success("Fetched mentors");
       const resp = await axios.get(
-        `http://localhost:3000/api/get-mentors${
+        `https://mentor-match-topaz.vercel.app/api/get-mentors${
           skills ? `?skills=${skills}` : ""
         }${intrests ? `&interests=${intrests}` : ""}${xp ? `&xp=${xp}` : ""}`
       );
@@ -58,7 +58,7 @@ const FilterMentors = () => {
       async function getData() {
         setLoad(true);
         const resp = await axios.get(
-          "http://localhost:3000/api/matches/" +
+          "https://mentor-match-topaz.vercel.app/api/matches/" +
             user?.primaryEmailAddress?.emailAddress
         );
         toast.success("Mentors based on your skills and intrests");
@@ -194,7 +194,7 @@ const FilterMentors = () => {
                   className="absolute right-3 bottom-3 z-10"
                   onClick={async () => {
                     await axios.get(
-                      `http://localhost:3000/api/follow-mentor?student=${user?.primaryEmailAddress?.emailAddress}&mentor=${SelecteduserProfile.email}`
+                      `https://mentor-match-topaz.vercel.app/api/follow-mentor?student=${user?.primaryEmailAddress?.emailAddress}&mentor=${SelecteduserProfile.email}`
                     );
                     toast.success(`you started following 
                       check notification`);

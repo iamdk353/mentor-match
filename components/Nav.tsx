@@ -3,7 +3,7 @@ import Link from "next/link";
 import MobileNav from "./MobileNav";
 import { SignOutButton, SignUpButton, useUser } from "@clerk/nextjs";
 import { Button } from "./ui/button";
-import { Loader } from "lucide-react";
+import { BellIcon, Loader } from "lucide-react";
 // const { user, isLoaded } = useUser();
 const Nav = () => {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -31,10 +31,10 @@ const Nav = () => {
                   Explore
                 </Link>
                 <Link
-                  href={`/foryou/${user.primaryEmailAddress?.emailAddress}`}
+                  href={`/notifications`}
                   className="text-blue-600 hover:text-blue-800"
                 >
-                  For you
+                  <BellIcon />
                 </Link>
                 <SignOutButton>
                   <Button className="text-blue-600 hover:text-blue-800 bg-blue-300 hover:bg-blue-200">

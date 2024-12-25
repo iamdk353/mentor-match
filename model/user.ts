@@ -15,8 +15,8 @@ const userSchema = new Schema({
     default: () => Math.round(Math.random() * 100),
   },
   image: Number,
-  requested: [{ type: String }],
-  accepted: [{ type: String }],
+  following: [{ type: String }],
+  notifications: [{ type: String }],
 });
 
 const User = models.User || model("User", userSchema);

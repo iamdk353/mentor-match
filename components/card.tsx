@@ -37,7 +37,9 @@ const UserCard = ({ data, setSelectedUser }: UserCardProps) => {
         <h3 className="mt-4 text-xl font-semibold text-blue-800">
           {data.name}
         </h3>
-        <p className="mt-2 text-sm text-blue-600 text-center">{data.email}</p>
+        <p className="mt-2 text-sm text-blue-600 text-center hidden md:block">
+          {data.email}
+        </p>
 
         <div className="mt-4 w-full">
           <div className="flex items-center mb-2">

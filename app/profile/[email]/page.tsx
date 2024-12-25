@@ -32,7 +32,7 @@ const page = async ({ params }: { params: { email: string } }) => {
           <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center p-4">
             <Card className="w-full max-w-3xl bg-white shadow-xl overflow-hidden">
               <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-400 text-white p-6 relative flex justify-center items-center">
-                USER NOT FOUND
+                CREATE YOUR PROFILE
               </CardHeader>
               <CardContent className="flex justify-center items-center p-10">
                 <CreateProfile />

@@ -24,7 +24,7 @@ import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
 import { useUser } from "@clerk/nextjs";
 import { Checkbox } from "../ui/checkbox";
 const FilterMentors = () => {
-  const { user } = useUser();
+  const { user, isSignedIn } = useUser();
   const [userProfile, setuserProfile] = useState<UserProfile[]>();
   const [SelecteduserProfile, setSelectedUserProfile] = useState<UserProfile>();
   const [forMe, setForme] = useState(false);
@@ -51,7 +51,7 @@ const FilterMentors = () => {
   }, [applyFilter]);
 
   useEffect(() => {
-    if (forMe) {
+    if (forMe && isSignedIn) {
       console.log(user?.primaryEmailAddress?.emailAddress);
       async function getData() {
         setLoad(true);
@@ -69,6 +69,7 @@ const FilterMentors = () => {
       }
       getData();
     } else {
+      // todo add toast to update profile
       setSkills("");
       setIntrests("");
       setXp(undefined);
@@ -80,14 +81,14 @@ const FilterMentors = () => {
       {!SelecteduserProfile && (
         <div className="min-h-screen">
           <form
-            className="h-[15rem] md:h-[5rem] bg-blue-200 w-[90%] mx-auto flex items-center p-3 space-x-3 flex-col md:flex-row justify-between "
+            className="h-[25rem] md:h-[5rem] bg-blue-200 w-[90%] mx-auto flex items-center p-3 space-x-3 flex-col md:flex-row justify-between "
             onSubmit={(e) => {
               e.preventDefault();
               setApplyfilter((prev) => !prev);
             }}
           >
             <div
-              className={`h-[15rem] md:h-[5rem] bg-blue-200 w-[90%] mx-auto flex items-center p-3 space-x-3 flex-col md:flex-row justify-between`}
+              className="h-[25rem] md:h-[5rem] bg-blue-200 w-[90%] mx-auto flex items-center p-3 md:space-x-3 flex-col md:flex-row justify-between space-y-1"
               inert={forMe}
             >
               <div className="flex-1">
@@ -200,7 +201,9 @@ const FilterMentors = () => {
                     <CardTitle className="text-sm md:text-2xl font-bold uppercase">
                       {SelecteduserProfile.name}
                     </CardTitle>
-                    <p className="text-blue-100">{SelecteduserProfile.email}</p>
+                    <p className="text-blue-100 hidden md:block">
+                      {SelecteduserProfile.email}
+                    </p>
                   </div>
                 </div>
               </CardHeader>

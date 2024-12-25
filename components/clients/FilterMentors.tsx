@@ -13,7 +13,6 @@ import {
   GraduationCap,
   Heart,
   Loader,
-  Send,
   User,
   X,
   ZapIcon,
@@ -53,7 +52,6 @@ const FilterMentors = () => {
     }
     getData();
   }, [applyFilter]);
-
   useEffect(() => {
     if (forMe && isSignedIn) {
       console.log(user?.primaryEmailAddress?.emailAddress);
@@ -203,8 +201,9 @@ const FilterMentors = () => {
                     setSelectedUserProfile(undefined);
                   }}
                 >
-                  {SelecteduserProfile.followers?.length! > 0
-                    ? SelecteduserProfile.followers?.includes(
+                  {SelecteduserProfile.followers?.length &&
+                  SelecteduserProfile.followers.length > 0
+                    ? SelecteduserProfile.followers.includes(
                         user?.primaryEmailAddress?.emailAddress as string
                       )
                       ? "Following"

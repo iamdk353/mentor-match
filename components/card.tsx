@@ -1,5 +1,5 @@
-import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
-import { Code, Heart, Send, Zap } from "lucide-react";
+import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
+import { Code, Heart, Zap } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Dispatch, SetStateAction } from "react";

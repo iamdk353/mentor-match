@@ -14,12 +14,10 @@ export async function GET(req: NextRequest) {
     const interest = searchParams.get("interests");
     await connectMongo();
     if (xp || skill || interest) {
-      console.log("some query");
       const skillRegexArr = skill?.split(",").map((i) => new RegExp(i, "i"));
       const intrestsRegexArr = interest
         ?.split(",")
         .map((i) => new RegExp(i, "i"));
-      console.log(skillRegexArr, intrestsRegexArr);
       const mentors = await User.find({
         $and: [
           { role: "Mentor" },
@@ -45,7 +43,6 @@ export async function GET(req: NextRequest) {
         mentors: mentorShuffle(mentors),
       });
     } else {
-      console.log("no query");
       const mentors = await User.find({
         role: "Mentor",
       });

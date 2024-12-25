@@ -21,7 +21,6 @@ export async function GET(
       ?.split(",")
       .map((i: string) => new RegExp(i.trim(), "i"));
 
-    console.log(skillRegexArr, intrestsRegexArr);
     const matchMentors = await User.find({
       $and: [
         { role: "Mentor" },

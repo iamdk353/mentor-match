@@ -5,7 +5,7 @@ export async function GET(
   request: Request,
   { params }: { params: { email: string } }
 ) {
-  const { email } = await params;
+  const { email } = params;
 
   await connectMongo();
 

@@ -1,10 +1,4 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
 import { UserPlus, Users, Calendar, MessageSquare } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import MobileNav from "@/components/MobileNav";
-import Nav from "@/components/Nav";
 
 export default function Home() {
   return (

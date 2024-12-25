@@ -37,7 +37,7 @@ import {
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Loader } from "lucide-react";
-import toast, { Toast } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Page = () => {
   const router = useRouter();

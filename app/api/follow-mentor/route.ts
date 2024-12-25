@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ msg: "followed" });
   } catch (error) {
     return NextResponse.json(
-      { msg: "error in following user" },
+      { msg: "error in following user", error },
       { status: 500 }
     );
   }

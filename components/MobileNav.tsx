@@ -39,7 +39,7 @@ const MobileNav = () => {
           </SelectItem>
           <SelectItem value="3">
             <Link
-              href={`/notifications`}
+              href={`/notifications/${user?.primaryEmailAddress?.emailAddress}`}
               className="text-blue-600 hover:text-blue-800 bg-red-500 w-full"
             >
               <BellIcon />

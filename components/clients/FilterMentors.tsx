@@ -236,6 +236,12 @@ const FilterMentors = () => {
                       ? SelecteduserProfile.role
                       : "Mentor"}
                   </Badge>
+                  <Badge
+                    variant="secondary"
+                    className="bg-gradient-to-r from-blue-200 to-blue-300 text-blue-800 hover:from-blue-300 hover:to-blue-400 md:hidden"
+                  >
+                    {SelecteduserProfile.email}
+                  </Badge>
                 </div>
                 <div className="flex items-center space-x-2">
                   <ZapIcon className="text-blue-600" />

@@ -23,6 +23,8 @@ export interface UserProfile {
   role?: string;
   skills: string;
   image?: number;
+  following?: string[];
+  followers?: string[];
   xp?: number;
 }
 

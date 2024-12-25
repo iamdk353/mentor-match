@@ -16,6 +16,7 @@ const userSchema = new Schema({
   },
   image: Number,
   following: [{ type: String }],
+  followers: [{ type: String }],
   notifications: [{ type: String }],
 });
 

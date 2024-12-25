@@ -31,7 +31,7 @@ const Nav = () => {
                   Explore
                 </Link>
                 <Link
-                  href={`/notifications`}
+                  href={`/notifications/${user.primaryEmailAddress?.emailAddress}`}
                   className="text-blue-600 hover:text-blue-800"
                 >
                   <BellIcon />

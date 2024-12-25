@@ -3,16 +3,8 @@ import { Code, Heart, Send, Zap } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Dispatch, SetStateAction } from "react";
-interface UserProfile {
-  email: string;
-  bio: string;
-  interests: string;
-  name: string;
-  role?: string;
-  skills: string;
-  image?: number;
-  xp?: number;
-}
+import { UserProfile } from "@/app/profile/edit/page";
+
 type UserCardProps = {
   data: UserProfile;
   setSelectedUser: Dispatch<SetStateAction<UserProfile | undefined>>;

@@ -33,6 +33,7 @@ const FilterMentors = () => {
   const [xp, setXp] = useState<number>();
   const [applyFilter, setApplyfilter] = useState(true);
   const [load, setLoad] = useState(false);
+
   useEffect(() => {
     async function getData() {
       setLoad(true);
@@ -168,6 +169,8 @@ const FilterMentors = () => {
                     skills: i.skills,
                     bio: i.bio,
                     xp: i.xp,
+                    followers: i.followers,
+                    following: i.following,
                   }}
                   setSelectedUser={setSelectedUserProfile}
                 />
@@ -187,8 +190,22 @@ const FilterMentors = () => {
                 }}
               />
               <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-400 text-white p-6 relative">
-                <Button className="absolute right-3 bottom-3 z-10">
-                  Follow
+                <Button
+                  className="absolute right-3 bottom-3 z-10"
+                  onClick={async () => {
+                    await axios.get(
+                      `http://localhost:3000/api/follow-mentor?student=${user?.primaryEmailAddress?.emailAddress}&mentor=${SelecteduserProfile.email}`
+                    );
+                    setSelectedUserProfile(undefined);
+                  }}
+                >
+                  {SelecteduserProfile.followers?.length! > 0
+                    ? SelecteduserProfile.followers?.includes(
+                        user?.primaryEmailAddress?.emailAddress as string
+                      )
+                      ? "Following"
+                      : "Follow"
+                    : "Follow"}
                 </Button>
                 <div className="flex items-center space-x-4">
                   <Avatar className="w-24 h-24 border-4 border-white shadow-lg">

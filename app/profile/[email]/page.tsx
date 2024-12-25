@@ -2,7 +2,13 @@ import EditClient from "@/components/clients/Edit";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GraduationCap, Heart, User } from "lucide-react";
+import {
+  GraduationCap,
+  Heart,
+  NotebookPenIcon,
+  User,
+  UserPlus2,
+} from "lucide-react";
 interface UserData {
   email: string;
   bio: string;
@@ -11,7 +17,8 @@ interface UserData {
   name: string;
   role: "MENTOR" | "STUDENT";
   skills: string;
-  students: string[];
+  following: string[];
+  followers: string[];
   image: number;
 }
 
@@ -113,10 +120,26 @@ const page = async ({ params }: { params: { email: string } }) => {
 
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <User className="text-blue-600" />
+              <NotebookPenIcon className="text-blue-600" />
               <h3 className="text-lg font-semibold text-blue-800">Bio</h3>
             </div>
             <p className="text-blue-800 text-justify">{data.bio}</p>
+          </div>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <UserPlus2 className="text-blue-600" />
+              <h3 className="text-lg font-semibold text-blue-800">Following</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {data.following.map((i: string, id: number) => (
+                <Badge
+                  variant="outline"
+                  className="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600 border-blue-200"
+                >
+                  {i}
+                </Badge>
+              ))}
+            </div>
           </div>
         </CardContent>
       </Card>

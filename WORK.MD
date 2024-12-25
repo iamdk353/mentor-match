@@ -13,8 +13,8 @@
 - [x] Implement secure user registration, login, and logout.
 - [x] Allow users to create, edit, and delete profiles.
 - [x] Develop a matching algorithm for mentors and mentees.
-- [ ] Enable connection requests (send, receive, accept, decline).
-- [ ] Add a notification system for mentorship requests and updates.
+- [x] Enable connection requests (send, receive, accept, decline).
+- [x] Add a notification system for mentorship requests and updates.
 
 ## Database Integration
 
@@ -30,17 +30,13 @@
 
 ## Deployment
 
-- [ ] Deploy the application (Heroku, Vercel, Netlify).
-- [ ] Ensure the deployed app is functional and accessible via a public URL.
-- [ ] Manage environment variables securely.
+- [x] Deploy the application (Heroku, Vercel, Netlify).
+- [x] Ensure the deployed app is functional and accessible via a public URL.
+- [x] Manage environment variables securely.
 
 ## Deliverables
 
-- [ ] GitHub repository with all source code.
-- [ ] Deployed application URL.
-- [ ] README file (setup instructions, deployed URL, technologies used).
+- [x] GitHub repository with all source code.
+- [x] Deployed application URL.
+- [x] README file (setup instructions, deployed URL, technologies used).
 - [ ] Documentation on development approach, challenges, and solutions.
-
-- [ ] implement moblie view
-- [ ] implement toast notifications
-- [ ] implement follow feature

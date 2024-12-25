@@ -25,10 +25,10 @@ const Nav = () => {
                   Profile
                 </Link>
                 <Link
-                  href="/mentors"
+                  href="/explore"
                   className="text-blue-600 hover:text-blue-800"
                 >
-                  Mentors
+                  Explore
                 </Link>
                 <Link
                   href={`/foryou/${user.primaryEmailAddress?.emailAddress}`}

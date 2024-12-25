@@ -16,14 +16,18 @@ import {
   Send,
   User,
   X,
+  ZapIcon,
 } from "lucide-react";
 import { Badge } from "../ui/badge";
-import toast from "react-hot-toast";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Avatar, AvatarImage } from "@radix-ui/react-avatar";
+import { useUser } from "@clerk/nextjs";
+import { Checkbox } from "../ui/checkbox";
 const FilterMentors = () => {
+  const { user } = useUser();
   const [userProfile, setuserProfile] = useState<UserProfile[]>();
   const [SelecteduserProfile, setSelectedUserProfile] = useState<UserProfile>();
+  const [forMe, setForme] = useState(false);
   const [skills, setSkills] = useState("");
   const [intrests, setIntrests] = useState("");
   const [xp, setXp] = useState<number>();
@@ -46,6 +50,31 @@ const FilterMentors = () => {
     getData();
   }, [applyFilter]);
 
+  useEffect(() => {
+    if (forMe) {
+      console.log(user?.primaryEmailAddress?.emailAddress);
+      async function getData() {
+        setLoad(true);
+        const resp = await axios.get(
+          "http://localhost:3000/api/matches/" +
+            user?.primaryEmailAddress?.emailAddress
+        );
+
+        const data = await resp.data.matchMentors;
+        setSkills(await resp.data.skills);
+        setIntrests(await resp.data.intrestes);
+        setXp(await resp.data.xp);
+        setuserProfile(data);
+        setLoad(false);
+      }
+      getData();
+    } else {
+      setSkills("");
+      setIntrests("");
+      setXp(undefined);
+      setApplyfilter((prev) => !prev);
+    }
+  }, [forMe]);
   return (
     <>
       {!SelecteduserProfile && (
@@ -57,49 +86,72 @@ const FilterMentors = () => {
               setApplyfilter((prev) => !prev);
             }}
           >
-            <div className="flex-1">
-              <Label>Skills</Label>
-              <Input
-                required
-                onChange={(e) => {
-                  setSkills(e.target.value);
-                }}
-              />
-            </div>
-            <div className="flex-1">
-              <Label>Intrests</Label>
-              <Input
-                required
-                onChange={(e) => {
-                  setIntrests(e.target.value);
-                }}
-              />
-            </div>
-            <div className="flex-1">
-              <Label>XP</Label>
-              <Input
-                required
-                type="number"
-                onChange={(e) => {
-                  setXp(Number(e.target.value));
-                }}
-              />
-            </div>
-            <Button className="bg-blue-700 hover:bg-blue-500" type="submit">
-              Apply <Filter />
-            </Button>
-            <Button
-              className="bg-blue-700 hover:bg-blue-500"
-              type="reset"
-              onClick={() => {
-                setSkills("");
-                setIntrests("");
-                setXp(undefined);
-                setApplyfilter((prev) => !prev);
-              }}
+            <div
+              className={`h-[15rem] md:h-[5rem] bg-blue-200 w-[90%] mx-auto flex items-center p-3 space-x-3 flex-col md:flex-row justify-between`}
+              inert={forMe}
             >
-              Reset <X />
-            </Button>
+              <div className="flex-1">
+                <Label>Skills</Label>
+                <Input
+                  value={skills}
+                  required
+                  onChange={(e) => {
+                    setSkills(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="flex-1">
+                <Label>Intrests</Label>
+                <Input
+                  value={intrests}
+                  required
+                  onChange={(e) => {
+                    setIntrests(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="flex-1">
+                <Label>XP</Label>
+                <Input
+                  value={xp === undefined ? "" : xp}
+                  required
+                  type="number"
+                  onChange={(e) => {
+                    setXp(Number(e.target.value));
+                  }}
+                />
+              </div>
+              <Button className="bg-blue-700 hover:bg-blue-500" type="submit">
+                Apply <Filter />
+              </Button>
+              <Button
+                className="bg-blue-700 hover:bg-blue-500"
+                type="reset"
+                onClick={() => {
+                  setSkills("");
+                  setIntrests("");
+                  setXp(undefined);
+                  setApplyfilter((prev) => !prev);
+                }}
+              >
+                Reset <X />
+              </Button>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="forMe"
+                className="checked:bg-blue-700"
+                onCheckedChange={(e: boolean) => {
+                  setForme(e);
+                }}
+              />
+              <Label
+                htmlFor="forMe"
+                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center cursor-pointer"
+              >
+                For Me <User />
+              </Label>
+            </div>
           </form>
           {load && <Loader className="animate-spin mx-auto" />}
           <div className="grid grid-cols-1 md:grid-cols-3 xl:md:grid-cols-5 w-[90%] mx-auto gap-4">
@@ -163,7 +215,13 @@ const FilterMentors = () => {
                       : "Mentor"}
                   </Badge>
                 </div>
-
+                <div className="flex items-center space-x-2">
+                  <ZapIcon className="text-blue-600" />
+                  <h3 className="text-lg font-semibold text-blue-800">XP</h3>
+                  <p className="text-lg font-bold text-blue-700">
+                    {SelecteduserProfile.xp}
+                  </p>
+                </div>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2">
                     <GraduationCap className="text-blue-600" />

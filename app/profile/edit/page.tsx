@@ -66,7 +66,7 @@ const Page = () => {
     e.preventDefault();
 
     try {
-      await axios.post("api/create-user/", {
+      await axios.post("/api/create-user/", {
         ...profile,
         role: selectchange,
         image,
@@ -84,7 +84,7 @@ const Page = () => {
       console.log("get data");
       try {
         const resp = await axios.get(
-          `api/get-user/${user?.primaryEmailAddress?.emailAddress}`
+          `/api/get-user/${user?.primaryEmailAddress?.emailAddress}`
         );
         console.log(resp.data);
         if (resp.data) {

@@ -26,6 +26,7 @@ import { Checkbox } from "../ui/checkbox";
 import toast from "react-hot-toast";
 const FilterMentors = () => {
   const { user, isSignedIn } = useUser();
+  const [followLoad, setFollowLoad] = useState(false);
   const [userProfile, setuserProfile] = useState<UserProfile[]>();
   const [SelecteduserProfile, setSelectedUserProfile] = useState<UserProfile>();
   const [forMe, setForme] = useState(false);
@@ -155,7 +156,7 @@ const FilterMentors = () => {
             </div>
           </form>
           {load && <Loader className="animate-spin mx-auto" />}
-          <div className="grid grid-cols-1 md:grid-cols-3 xl:md:grid-cols-5 w-[90%] mx-auto gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:md:grid-cols-5 w-[90%] mx-auto gap-4 ">
             {userProfile?.map((i) => {
               return (
                 <UserCard
@@ -180,7 +181,7 @@ const FilterMentors = () => {
       )}
       <div>
         {SelecteduserProfile && (
-          <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center p-4  ">
+          <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center p-4 motion-preset-focus ">
             <Card className="w-full max-w-3xl bg-white shadow-xl overflow-hidden relative">
               <ArrowLeft
                 className="absolute right-3 top-3 size-8 text-blue-800 z-10 cursor-pointer"
@@ -191,13 +192,16 @@ const FilterMentors = () => {
               <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-400 text-white p-6 relative">
                 <Button
                   className="absolute right-3 bottom-3 z-10"
+                  disabled={followLoad}
                   onClick={async () => {
+                    setFollowLoad(true);
                     await axios.get(
                       `api/follow-mentor?student=${user?.primaryEmailAddress?.emailAddress}&mentor=${SelecteduserProfile.email}`
                     );
                     toast.success(`you started following 
                       check notification`);
                     setSelectedUserProfile(undefined);
+                    setFollowLoad(true);
                   }}
                 >
                   {SelecteduserProfile.followers?.length &&
@@ -208,6 +212,7 @@ const FilterMentors = () => {
                       ? "Following"
                       : "Follow"
                     : "Follow"}
+                  {/* {followLoad && <Loader className="animate-spin" />} */}
                 </Button>
                 <div className="flex items-center space-x-4">
                   <Avatar className="w-24 h-24 border-4 border-white shadow-lg">

@@ -12,7 +12,7 @@ type UserCardProps = {
 
 const UserCard = ({ data, setSelectedUser }: UserCardProps) => {
   return (
-    <Card className="w-72 bg-blue-50 shadow-md hover:shadow-lg transition-all duration-300  relative group">
+    <Card className="w-72 bg-blue-50 shadow-md hover:shadow-lg transition-all duration-300  relative group motion-preset-slide-up mx-auto">
       <Badge
         className="absolute bg-blue-500 right-2 top-2 hidden group-hover:flex cursor-pointer hover:bg-blue-700"
         onClick={() => {

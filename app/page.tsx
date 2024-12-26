@@ -9,7 +9,7 @@ export default function Home() {
 
       <div className="relative">
         <section className="container mx-auto px-6 py-16 text-center">
-          <h1 className="text-5xl font-bold text-blue-900 mb-4">
+          <h1 className="text-5xl font-bold text-blue-900 mb-4 motion-preset-fade">
             Find Your Perfect Mentor Match
           </h1>
           <p className="text-xl text-blue-700 mb-8">
@@ -69,7 +69,7 @@ function FeatureCard({
   description: String;
 }) {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-md motion-preset-focus ">
       <div className="flex justify-center mb-4">{icon}</div>
       <h3 className="text-xl font-semibold text-blue-900 mb-2">{title}</h3>
       <p className="text-blue-700">{description}</p>
